@@ -46,7 +46,9 @@ public class Setting {
 	}
 
 	public void on() {
-		int num = 0,serve = 0;
+		String name;
+		int num = 0,price = 0;
+		int serve = 0;
 		Menu m = new Menu();
 		Scanner s = new Scanner(System.in);
 		readmenu();
@@ -55,11 +57,12 @@ public class Setting {
 		while (function != "q") {
 			switch (function) {
 			case "1":
-				String name = "大麥克";
-				int price = m.getPrice() * num;
+				name = "大麥克";
+				price = m.getPrice() * num;
 				System.out.println("請輸入數量:");
 				num = s.nextInt();
 				System.out.println("目前餐點:");
+				
 				serve++;
 				c.add(new Customer(serve,name,num,price));
 				for (Customer customer : c) {
@@ -70,11 +73,16 @@ public class Setting {
 				break;
 				
 			case "2":
+				name = "雙層吉士牛肉堡";
+				price = m.getPrice() * num;
 				System.out.println("請輸入數量:");
 				num = s.nextInt();
-				serve = 0;
 				System.out.println("目前餐點:");
-				
+				serve++;
+				c.add(new Customer(serve,name,num,price));
+				for (Customer customer : c) {
+					System.out.println(customer.getOrder()+". " + customer.getName() + " " + customer.getNum() + "份");;
+				}
 				System.out.println("====================");
 				on();
 				break;	
