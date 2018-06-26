@@ -55,7 +55,7 @@ public class Setting {
 		while (function != "q") {
 			switch (function) {
 			case "1":
-				String name = m.getName();
+				String name = "大麥克";
 				int price = m.getPrice() * num;
 				System.out.println("請輸入數量:");
 				num = s.nextInt();
