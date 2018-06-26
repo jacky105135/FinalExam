@@ -26,7 +26,7 @@ public class Setting {
 				int price = Integer.parseInt(a[2]);
 				String kcal = a[3];
 				int count = 0;
-				menu.add(new Menu(id, name, price, kcal, count));
+				menu.add(new Menu(id, name, price, kcal));
 				line = br.readLine();
 			}
 
@@ -43,6 +43,7 @@ public class Setting {
 	public void on() {
 		boolean run = true;
 		int order = 0;
+		int total = 0;
 		while (run) {
 			for (Menu m : menu) {
 				System.out.println(m.getId() + ") " + m.getName());
@@ -67,12 +68,118 @@ public class Setting {
 				name = a.getName();
 				price = a.getPrice() * count;
 				c.add(new Customer(order,name,count,price));
+				total = total + price;
+				System.out.println("目前餐點:");
 				for (Customer customer : c) {
 					System.out.println(customer.getOrder() + ". " + customer.getName() + "　" + customer.getNum() + "份");
 				}
 				System.out.println("=================");
 				break;
 
+			case "2":
+				order++;
+				System.out.println("請輸入數量:");
+				count = s.nextInt();
+				Menu b = menu.get(Integer.parseInt(function) - 1);
+				name = b.getName();
+				price = b.getPrice() * count;
+				total = total + price;
+				c.add(new Customer(order,name,count,price));
+				System.out.println("目前餐點:");
+				for (Customer customer : c) {
+					System.out.println(customer.getOrder() + ". " + customer.getName() + "　" + customer.getNum() + "份");
+				}
+				System.out.println("=================");
+				break;
+				
+			case "3":
+				order++;
+				System.out.println("請輸入數量:");
+				count = s.nextInt();
+				Menu d = menu.get(Integer.parseInt(function) - 1);
+				name = d.getName();
+				price = d.getPrice() * count;
+				total = total + price;
+				c.add(new Customer(order,name,count,price));
+				System.out.println("目前餐點:");
+				for (Customer customer : c) {
+					System.out.println(customer.getOrder() + ". " + customer.getName() + "　" + customer.getNum() + "份");
+				}
+				System.out.println("=================");
+				break;
+				
+			case "4":
+				order++;
+				System.out.println("請輸入數量:");
+				count = s.nextInt();
+				Menu e = menu.get(Integer.parseInt(function) - 1);
+				name = e.getName();
+				price = e.getPrice() * count;
+				total = total + price;
+				c.add(new Customer(order,name,count,price));
+				System.out.println("目前餐點:");
+				for (Customer customer : c) {
+					System.out.println(customer.getOrder() + ". " + customer.getName() + "　" + customer.getNum() + "份");
+				}
+				System.out.println("=================");
+				break;
+				
+			case "5":
+				order++;
+				System.out.println("請輸入數量:");
+				count = s.nextInt();
+				Menu f = menu.get(Integer.parseInt(function) - 1);
+				name = f.getName();
+				price = f.getPrice() * count;
+				total = total + price;
+				c.add(new Customer(order,name,count,price));
+				System.out.println("目前餐點:");
+				for (Customer customer : c) {
+					System.out.println(customer.getOrder() + ". " + customer.getName() + "　" + customer.getNum() + "份");
+				}
+				System.out.println("=================");
+				break;
+				
+			case "6":
+				order++;
+				System.out.println("請輸入數量:");
+				count = s.nextInt();
+				Menu g = menu.get(Integer.parseInt(function) - 1);
+				name = g.getName();
+				price = g.getPrice() * count;
+				total = total + price;
+				c.add(new Customer(order,name,count,price));
+				System.out.println("目前餐點:");
+				for (Customer customer : c) {
+					System.out.println(customer.getOrder() + ". " + customer.getName() + "　" + customer.getNum() + "份");
+				}
+				System.out.println("=================");
+				break;
+				
+			case "7":
+				order++;
+				System.out.println("請輸入數量:");
+				count = s.nextInt();
+				Menu h = menu.get(Integer.parseInt(function) - 1);
+				name = h.getName();
+				price = h.getPrice() * count;
+				total = total + price;
+				c.add(new Customer(order,name,count,price));
+				System.out.println("目前餐點:");
+				for (Customer customer : c) {
+					System.out.println(customer.getOrder() + ". " + customer.getName() + "　" + customer.getNum() + "份");
+				}
+				System.out.println("=================");
+				break;
+				
+			case "0":
+				System.out.println("所有餐點:");
+				for (Customer customer : c) {
+					System.out.println(customer.getOrder() + ". " + customer.getName() + customer.getNum() + "份");
+				}
+				System.out.println("合計 " + total);
+				run = false;
+				break;
 			default:
 				break;
 			}

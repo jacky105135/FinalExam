@@ -5,16 +5,7 @@ public class Menu {
 	String name;
 	int price;
 	String kcal;
-	int count;
 	
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
-
 	public int getPrice() {
 		return price;
 	}
@@ -47,11 +38,12 @@ public class Menu {
 		this.kcal = kcal;
 	}
 
-	public Menu(int id, String name, int price, String kcal,int count) {
+	public Menu(int id, String name, int price, String kcal) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.kcal = kcal;
+		this.price = price;
 	}
 
 	public Menu() {
