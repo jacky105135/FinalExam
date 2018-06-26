@@ -29,11 +29,6 @@ public class Setting {
 				menu.add(new Menu(id, name, price, kcal, count));
 				line = br.readLine();
 			}
-			for (Menu m : menu) {
-				System.out.println(m.getId() + ") " + m.getName());
-			}
-			System.out.println("0) " + "結算");
-			System.out.println("q) " + "離開(結束應用程式)");
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -46,50 +41,41 @@ public class Setting {
 	}
 
 	public void on() {
-		String name;
-		int num = 0,price = 0;
-		int serve = 0;
-		Menu m = new Menu();
-		Scanner s = new Scanner(System.in);
-		readmenu();
-		System.out.println("請輸入餐點:");
-		String function = s.nextLine();
-		while (function != "q") {
+		boolean run = true;
+		int order = 0;
+		while (run) {
+			for (Menu m : menu) {
+				System.out.println(m.getId() + ") " + m.getName());
+			}
+			System.out.println("0) " + "結算");
+			System.out.println("q) " + "離開(結束應用程式)");
+			System.out.println("請輸入餐點:");
+
+			Scanner s = new Scanner(System.in);
+			String function = s.nextLine();
+			String name;
+			int price;
+			int count;
+			
 			switch (function) {
+
 			case "1":
-				name = "大麥克";
-				price = m.getPrice() * num;
+				order++;
 				System.out.println("請輸入數量:");
-				num = s.nextInt();
-				System.out.println("目前餐點:");
-				
-				serve++;
-				c.add(new Customer(serve,name,num,price));
+				count = s.nextInt();
+				Menu a = menu.get(Integer.parseInt(function) - 1);
+				name = a.getName();
+				price = a.getPrice() * count;
+				c.add(new Customer(order,name,count,price));
 				for (Customer customer : c) {
-					System.out.println(customer.getOrder()+". " + customer.getName() + " " + customer.getNum() + "份");;
+					System.out.println(customer.getOrder() + ". " + customer.getName() + "　" + customer.getNum() + "份");
 				}
-				System.out.println("====================");
-				on();
+				System.out.println("=================");
 				break;
-				
-			case "2":
-				name = "雙層吉士牛肉堡";
-				price = m.getPrice() * num;
-				System.out.println("請輸入數量:");
-				num = s.nextInt();
-				System.out.println("目前餐點:");
-				serve++;
-				c.add(new Customer(serve,name,num,price));
-				for (Customer customer : c) {
-					System.out.println(customer.getOrder()+". " + customer.getName() + " " + customer.getNum() + "份");;
-				}
-				System.out.println("====================");
-				on();
-				break;	
+
 			default:
 				break;
 			}
 		}
 	}
-
 }
