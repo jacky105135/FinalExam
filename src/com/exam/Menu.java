@@ -5,7 +5,16 @@ public class Menu {
 	String name;
 	int price;
 	String kcal;
+	int count;
 	
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 	public int getPrice() {
 		return price;
 	}
@@ -38,7 +47,7 @@ public class Menu {
 		this.kcal = kcal;
 	}
 
-	public Menu(int id, String name, int price, String kcal) {
+	public Menu(int id, String name, int price, String kcal,int count) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,6 +56,14 @@ public class Menu {
 
 	public Menu() {
 		
+	}
+
+	public boolean show(String function) {
+		boolean show = false;
+		if(Integer.parseInt(function) == getId()){
+			show = true;
+		}
+		return show;
 	}
 	
 }
